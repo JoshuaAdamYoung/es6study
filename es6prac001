@@ -1,0 +1,24 @@
+let people = [
+  {
+  first: 'John',
+  last: 'smith'
+},
+{
+  first: 'Jane',
+  last: 'smoth'
+}]
+people.forEach(({first, last}) => (console.log(first + last)));
+var [john,jane] = people;
+let lastName = ({last}) => console.log(last)
+lastName(jane);
+lastName(john);
+
+/* 
+So what is happening here?
+
+Let initializes a variable, in this case an object on the first line
+in the for each function I am passing in first and last inside curly braces, and logging it
+the next line it doesnt matter if i use john jane or gadorpadorp its assigning names for the objects based on position.
+for a on object with nested objects, this means that [firstObj, secondObj, ... lastObj]
+line 12 creates a function lastName that passes in the 'last' propert of the specified object.
+having specified the objects with variables on line 11, I can now pass in the individual objects, and pass out the 'last' property
